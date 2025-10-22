@@ -1,0 +1,17 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Maven
+target/
+.mvn/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# OS files
+.DS_Store
+
+# Build outputs
+/out/
