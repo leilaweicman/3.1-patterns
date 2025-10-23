@@ -1,4 +1,18 @@
 package nivel2.factories;
 
-public class SpainFactory {
+import nivel2.products.Address;
+import nivel2.products.PhoneNumber;
+import nivel2.products.SpainAddress;
+import nivel2.products.SpainPhone;
+
+public class SpainFactory implements ContactFactory{
+    @Override
+    public Address createAddress(String street, String city) {
+        return new SpainAddress(street, city);
+    }
+
+    @Override
+    public PhoneNumber createPhone(String countryCode, String number) {
+        return new SpainPhone(countryCode, number);
+    }
 }

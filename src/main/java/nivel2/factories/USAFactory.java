@@ -1,4 +1,15 @@
 package nivel2.factories;
 
-public class USAFactory {
+import nivel2.products.*;
+
+public class USAFactory implements ContactFactory{
+    @Override
+    public Address createAddress(String street, String city) {
+        return new USAAddress(street, city);
+    }
+
+    @Override
+    public PhoneNumber createPhone(String countryCode, String number) {
+        return new USAPhone(countryCode, number);
+    }
 }
