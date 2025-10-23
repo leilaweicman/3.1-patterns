@@ -5,7 +5,10 @@ public class SpainPhone implements PhoneNumber {
     private final String number;
 
     public SpainPhone(String number) {
-        this.number = number;
+        if (number == null || number.trim().isEmpty()) {
+            throw new IllegalArgumentException("Phone number cannot be null or empty");
+        }
+        this.number = number.trim();
     }
 
     @Override

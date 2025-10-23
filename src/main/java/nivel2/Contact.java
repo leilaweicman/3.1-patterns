@@ -10,7 +10,17 @@ public class Contact {
     private final PhoneNumber phoneNumber;
 
     public Contact(String name, Address address, PhoneNumber phoneNumber) {
-        this.name = name;
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        if (address == null) {
+            throw new IllegalArgumentException("Address cannot be null");
+        }
+        if (phoneNumber == null) {
+            throw new IllegalArgumentException("Phone number cannot be null");
+        }
+
+        this.name = name.trim();
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
