@@ -9,7 +9,7 @@ public class USAFactory implements ContactFactory{
     }
 
     @Override
-    public PhoneNumber createPhone(String countryCode, String number) {
-        return new USAPhone(countryCode, number);
+    public PhoneNumber createPhone(String number) {
+        return new USAPhone(number);
     }
 }

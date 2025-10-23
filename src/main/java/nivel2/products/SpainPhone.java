@@ -4,7 +4,7 @@ public class SpainPhone implements PhoneNumber {
     private static final String COUNTRY_CODE = "+34";
     private final String number;
 
-    public SpainPhone(String countryCode, String number) {
+    public SpainPhone(String number) {
         this.number = number;
     }
 

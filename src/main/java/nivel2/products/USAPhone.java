@@ -4,7 +4,7 @@ public class USAPhone implements PhoneNumber {
     private static final String COUNTRY_CODE = "+1";
     private final String number;
 
-    public USAPhone(String countryCode, String number) {
+    public USAPhone(String number) {
         this.number = number;
     }
 

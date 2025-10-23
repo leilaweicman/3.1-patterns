@@ -5,5 +5,5 @@ import nivel2.products.PhoneNumber;
 
 public interface ContactFactory {
     Address createAddress(String street, String city);
-    PhoneNumber createPhone(String countryCode, String number);
+    PhoneNumber createPhone(String number);
 }

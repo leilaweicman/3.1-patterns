@@ -12,7 +12,7 @@ public class SpainFactory implements ContactFactory{
     }
 
     @Override
-    public PhoneNumber createPhone(String countryCode, String number) {
-        return new SpainPhone(countryCode, number);
+    public PhoneNumber createPhone(String number) {
+        return new SpainPhone(number);
     }
 }
