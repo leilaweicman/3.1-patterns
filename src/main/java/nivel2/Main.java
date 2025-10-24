@@ -10,7 +10,7 @@ public class Main {
         ContactFactory spainFactory = new SpainFactory();
         Contact spainContact = new Contact("Pedro",
                 spainFactory.createAddress("Calle Mayor 10", "Madrid"),
-                spainFactory.createPhone("600123456")
+                spainFactory.createPhone("+34600123456")
         );
 
         ContactFactory USAFactory = new USAFactory();
@@ -24,6 +24,5 @@ public class Main {
         addressBook.addContact(USAContact);
 
         System.out.println(addressBook.getAllContactsInfo());
-
     }
 }

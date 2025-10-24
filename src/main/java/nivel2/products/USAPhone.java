@@ -1,18 +1,27 @@
 package nivel2.products;
 
-public class USAPhone implements PhoneNumber {
-    private static final String COUNTRY_CODE = "+1";
-    private final String number;
+public class USAPhone extends BasePhone {
+
+    private static final String NUMBER_COUNTRY_CODE = "1";
+    private static final String COUNTRY_CODE = "+" + NUMBER_COUNTRY_CODE;
 
     public USAPhone(String number) {
-        if (number == null || number.trim().isEmpty()) {
-            throw new IllegalArgumentException("Phone number cannot be null or empty");
+        super(COUNTRY_CODE, number);
+    }
+
+    @Override
+    protected String normalizeCountrySpecific(String input) {
+        if (input.startsWith(COUNTRY_CODE)) input = input.substring(2);
+        if (input.startsWith(NUMBER_COUNTRY_CODE)) input = input.substring(1);
+        if (!input.matches("\\d{10}")) {
+            throw new IllegalArgumentException("U.S. phone number must have 10 digits");
         }
-        this.number = number.trim();
+        return input;
     }
 
     @Override
     public String getFullNumber() {
-        return COUNTRY_CODE + " " + number;
+        String n = getNumber();
+        return getCountryCode() + " (" + n.substring(0, 3) + ") " + n.substring(3, 6) + "-" + n.substring(6);
     }
 }

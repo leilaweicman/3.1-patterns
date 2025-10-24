@@ -5,11 +5,8 @@ public class USAAddress implements Address {
     private final String city;
 
     public USAAddress(String street, String city) {
-        if (street == null || street.trim().isEmpty()) {
-            throw new IllegalArgumentException("Street cannot be null or empty");
-        }
-        if (city == null || city.trim().isEmpty()) {
-            throw new IllegalArgumentException("City cannot be null or empty");
+        if (street == null || street.isEmpty() || city == null || city.isEmpty()) {
+            throw new IllegalArgumentException("Street and city cannot be empty");
         }
 
         this.street = street.trim();

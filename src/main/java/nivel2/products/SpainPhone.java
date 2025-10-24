@@ -1,18 +1,25 @@
 package nivel2.products;
 
-public class SpainPhone implements PhoneNumber {
-    private static final String COUNTRY_CODE = "+34";
-    private final String number;
+public class SpainPhone extends BasePhone {
+    private static final String NUMBER_COUNTRY_CODE = "34";
+    private static final String COUNTRY_CODE = "+" + NUMBER_COUNTRY_CODE;
 
     public SpainPhone(String number) {
-        if (number == null || number.trim().isEmpty()) {
-            throw new IllegalArgumentException("Phone number cannot be null or empty");
+        super(COUNTRY_CODE, number);
+    }
+
+    @Override
+    protected String normalizeCountrySpecific(String input) {
+        if (input.startsWith(COUNTRY_CODE)) input = input.substring(3);
+        if (input.startsWith(NUMBER_COUNTRY_CODE)) input = input.substring(2);
+        if (!input.matches("\\d{9}")) {
+            throw new IllegalArgumentException("Spanish phone number must have 9 digits");
         }
-        this.number = number.trim();
+        return input;
     }
 
     @Override
     public String getFullNumber() {
-        return COUNTRY_CODE + " " + number;
+        return getCountryCode() + " " + getNumber();
     }
 }
