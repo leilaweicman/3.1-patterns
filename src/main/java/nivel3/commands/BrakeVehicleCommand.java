@@ -2,11 +2,11 @@ package nivel3.commands;
 
 import nivel3.vehicles.Vehicle;
 
-public class BreakVehicleCommand implements Command {
+public class BrakeVehicleCommand implements Command {
 
     public final Vehicle vehicle;
 
-    public BreakVehicleCommand(Vehicle vehicle) {
+    public BrakeVehicleCommand(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
 
