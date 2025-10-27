@@ -1,4 +1,4 @@
-package nivel3;
+package nivel3.vehicles;
 
 public class Boat implements Vehicle {
     @Override
